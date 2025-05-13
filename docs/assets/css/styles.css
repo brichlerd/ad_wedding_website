@@ -1,17 +1,9 @@
 :root {
     --main-bg: #add884;
-    --header-bg: #c4a484cf;
+    --header-bg: #8cbf5f;
     --text-color: #333;
-    --header-text: white;
-    --nav-link-color: white;
-    --nav-link-hover: #d7e9c2;
-  }
-  
-  body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background-color: var(--main-bg);
-    color: var(--text-color);
+    --nav-link-color: #5a3e36;
+    --nav-link-hover: #e9dcd3;
   }
   
   header {
@@ -20,25 +12,24 @@
     text-align: center;
   }
   
-  header h1 {
-    margin: 0;
-    color: var(--header-text);
-  }
-  
   nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
   }
   
   nav a {
-    margin: 0 0.5rem;
-    color: var(--nav-link-color);
     text-decoration: none;
+    color: var(--nav-link-color);
     font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s;
   }
   
   nav a:hover {
     background-color: var(--nav-link-hover);
-    border-radius: 4px;
-    padding: 0.2rem 0.5rem;
   }
   
