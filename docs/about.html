@@ -1,22 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Story | Turtle & Deer Wedding</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f9f4ef;
+      color: #333;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: #5a3e36;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #e9dcd3;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    main {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      line-height: 1.7;
+    }
+    h2 {
+      text-align: center;
+      color: #4a2f27;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
 <body>
-    <main>
-      <h2>The Tale of Turtle & Deer</h2>
-      <p>
-        Once upon a time in the sun-dappled glade of Everwood Forest, a quiet turtle named Shelldon spent his days sketching leaves and watching clouds drift lazily across the sky. He wasn’t in a hurry — after all, turtles rarely are.
-      </p>
-      <p>
-        One spring morning, while searching for the perfect mushroom to shade his sketchpad, Shelldon heard the lightest footsteps — like whispers on moss. It was Della, a curious deer with bright eyes and a love for poetry. She had wandered too far from her herd while chasing a butterfly and stumbled upon Shelldon in the clearing.
-      </p>
-      <p>
-        They talked — about clouds, mushrooms, and moonlight. Days turned into weeks, and their unlikely friendship blossomed into something more. Shelldon wrote haikus about Della’s laughter. Della read stories aloud while Shelldon napped beside her.
-      </p>
-      <p>
-        Other animals whispered — "A turtle and a deer?" But love in Everwood knows no bounds. They built a tiny bench by the stream where they watched the stars every night. And under the Harvest Moon, Shelldon carved “Will you marry me?” into a smooth river stone. Della said yes with a nuzzle.
-      </p>
-      <p>
-        Now, surrounded by friends of feather and fur, we invite you to witness the magical union of Shelldon the turtle and Della the deer — a love story slow, strong, and forever.
-      </p>
-    </main>
 
-  </body>
-  
+  <!-- Shared header gets loaded here -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+  </script>
+
+  <main>
+    <h2>The Tale of Shelldon & Della</h2>
+    <p>
+      Once upon a time in the sun-dappled glade of Everwood Forest, a quiet turtle named Shelldon spent his days sketching leaves and watching clouds drift lazily across the sky. He wasn’t in a hurry — after all, turtles rarely are.
+    </p>
+    <p>
+      One spring morning, while searching for the perfect mushroom to shade his sketchpad, Shelldon heard the lightest footsteps — like whispers on moss. It was Della, a curious deer with bright eyes and a love for poetry. She had wandered too far from her herd while chasing a butterfly and stumbled upon Shelldon in the clearing.
+    </p>
+    <p>
+      They talked — about clouds, mushrooms, and moonlight. Days turned into weeks, and their unlikely friendship blossomed into something more. Shelldon wrote haikus about Della’s laughter. Della read stories aloud while Shelldon napped beside her.
+    </p>
+    <p>
+      Other animals whispered — "A turtle and a deer?" But love in Everwood knows no bounds. They built a tiny bench by the stream where they watched the stars every night. And under the Harvest Moon, Shelldon carved “Will you marry me?” into a smooth river stone. Della said yes with a nuzzle.
+    </p>
+    <p>
+      Now, surrounded by friends of feather and fur, we invite you to witness the magical union of Shelldon the turtle and Della the deer — a love story slow, strong, and forever.
+    </p>
+  </main>
+
+  <footer>
+    &copy; 2025 Shelldon & Della | All rights reserved
+  </footer>
+
+</body>
+</html>

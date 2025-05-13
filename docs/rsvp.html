@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RSVP | Emma & Noah's Wedding</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fdf6f0;
+      color: #333;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #5a3e36;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #e9dcd3;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      color: #4a2f27;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 100%;
+      height: 1000px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (min-width: 768px) {
+      iframe {
+        max-width: 640px;
+        height: 967px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared header will be loaded here -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+  </script>
+
+  <main>
+    <h2>RSVP</h2>
+    <p>Please let us know if you’ll be joining us for our special day by filling out the form below.</p>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHfZwOez2EJL3srxxR3r_mksu4J3cN_6Ykv0DYTWWrQuteKg/viewform?embedded=true" marginheight="0" marginwidth="0">Loading…</iframe>
+  </main>
+
+  <footer>
+    &copy; 2025 Emma & Noah | All rights reserved
+  </footer>
+
+</body>
+</html>
