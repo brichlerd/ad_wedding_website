@@ -6,22 +6,11 @@
   <title>Welcome to Our Wedding</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    /* Basic styling (can move to styles.css) */
     body {
       margin: 0;
       font-family: 'Georgia', serif;
       background-color: #fdf6f0;
       color: #333;
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    h1 {
-      margin-bottom: 0.5rem;
-      font-size: 2.5rem;
     }
     nav {
       display: flex;
@@ -41,6 +30,12 @@
     nav a:hover {
       background-color: #e9dcd3;
     }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
     main {
       text-align: center;
       padding: 3rem 1rem;
@@ -55,17 +50,13 @@
 </head>
 <body>
 
-  <header>
-    <h1>Ashley & Danny's Wedding</h1>
-    <p>Join us in celebrating our special day</p>
-    <nav>
-      <a href="about.html">Our Story</a>
-      <a href="location.html">Location & Accommodations</a>
-      <a href="rsvp.html">RSVP</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="registry.html">Registry</a>
-    </nav>
-  </header>
+  <!-- Header will be loaded here -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+  </script>
 
   <main>
     <h2>Welcome!</h2>
