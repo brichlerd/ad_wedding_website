@@ -6,16 +6,28 @@
     --nav-link-hover: #e9dcd3;
   }
   
+  /* Make page fill screen and center everything */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Header styles */
   header {
     background-color: var(--header-bg);
     padding: 1.5rem 1rem;
     text-align: center;
-  }
-
-  footer a:hover {
-    text-decoration: underline;
+    width: 100%;
   }
   
+  /* Navigation bar styles */
   nav {
     display: flex;
     justify-content: center;
@@ -35,5 +47,33 @@
   
   nav a:hover {
     background-color: var(--nav-link-hover);
+  }
+  
+  /* Main content centered, grow to fill space */
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  /* Footer centered and sticky to bottom if content is short */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    width: 100%;
+    color: var(--text-color);
+  }
+  
+  footer a {
+    color: var(--nav-link-color);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
   }
   
