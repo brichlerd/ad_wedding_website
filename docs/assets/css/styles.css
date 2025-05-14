@@ -77,3 +77,41 @@
     text-decoration: underline;
   }
   
+  .gallery {
+    column-count: 3;
+    column-gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .photo {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+  
+  /* Caption appears on hover */
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .photo:hover .caption {
+    opacity: 1;
+  }
+  
