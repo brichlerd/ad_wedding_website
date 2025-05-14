@@ -11,6 +11,10 @@
     padding: 1.5rem 1rem;
     text-align: center;
   }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
   
   nav {
     display: flex;

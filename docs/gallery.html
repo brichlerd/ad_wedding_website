@@ -9,69 +9,131 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #add884;
-      color: #333;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #5a3e36;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #e9dcd3;
+      background-color: var(--main-bg);
+      color: var(--text-color);
     }
 
     main {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.7;
+      padding: 1rem;
     }
 
-    h2 {
-      text-align: center;
-      color: #4a2f27;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
     }
 
-    footer {
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 0.5rem;
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #777;
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
     }
   </style>
 </head>
-<body>
+<body id="top">
 
-  <!-- Shared header will be loaded here -->
+  <!-- Shared header -->
   <div id="site-header"></div>
+
+  <main>
+    <h2 style="text-align: center;">Our Photo Gallery</h2>
+    <div class="gallery-grid">
+      <!-- Image 1–12, placeholders -->
+      <div class="gallery-item">
+        <img src="assets/images/photo1.jpg" alt="Gallery photo 1">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo2.jpg" alt="Gallery photo 2">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo3.jpg" alt="Gallery photo 3">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo4.jpg" alt="Gallery photo 4">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo5.jpg" alt="Gallery photo 5">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo6.jpg" alt="Gallery photo 6">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo7.jpg" alt="Gallery photo 7">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo8.jpg" alt="Gallery photo 8">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo9.jpg" alt="Gallery photo 9">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo10.jpg" alt="Gallery photo 10">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo11.jpg" alt="Gallery photo 11">
+        <div class="overlay">Your description here</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/images/photo12.jpg" alt="Gallery photo 12">
+        <div class="overlay">Your description here</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared footer -->
+  <div id="site-footer"></div>
+
   <script>
     fetch('header.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-header').innerHTML = html);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
-
-  <main>
-    <h2>Gallery</h2>
-    <p>We can’t wait to share photos of our journey with you. Check back soon to see our engagement, behind-the-scenes, and celebration moments!</p>
-  </main>
-
-  <footer>
-    &copy; 2025 Emma & Noah | All rights reserved
-  </footer>
 
 </body>
 </html>
