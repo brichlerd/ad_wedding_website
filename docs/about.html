@@ -19,25 +19,14 @@
       text-align: center;
       color: #4a2f27;
     }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: var(--text-color);
-    }
   </style>
 </head>
 <body>
 
   <!-- Shared header will be loaded here -->
   <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-header').innerHTML = html);
-  </script>
 
+  <!-- Main content -->
   <main>
     <h2>The Tale of Shelldon & Della</h2>
     <p>
@@ -57,9 +46,20 @@
     </p>
   </main>
 
-  <footer>
-    &copy; 2025 Emma & Noah | All rights reserved
-  </footer>
+  <!-- Shared footer will be loaded here -->
+  <div id="site-footer"></div>
+
+  <script>
+    // Load shared header
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+
+    // Load shared footer
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
+  </script>
 
 </body>
 </html>
