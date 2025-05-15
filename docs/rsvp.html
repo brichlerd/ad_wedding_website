@@ -48,11 +48,6 @@
 
   <!-- Shared header will be loaded here -->
   <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-header').innerHTML = html);
-  </script>
 
   <main>
     <h2>RSVP</h2>
@@ -61,9 +56,18 @@
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHfZwOez2EJL3srxxR3r_mksu4J3cN_6Ykv0DYTWWrQuteKg/viewform?embedded=true" marginheight="0" marginwidth="0">Loading…</iframe>
   </main>
 
-  <footer>
-    &copy; 2025 Emma & Noah | All rights reserved
-  </footer>
+  <!-- Shared footer will be loaded here -->
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
+  </script>
 
 </body>
 </html>

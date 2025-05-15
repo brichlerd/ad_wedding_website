@@ -30,20 +30,24 @@
 
   <!-- Shared header will be loaded here -->
   <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-header').innerHTML = html);
-  </script>
 
   <main>
     <h2>Welcome!</h2>
     <p>We’re so excited to share this moment with you. Explore the site to find out more about our story, where to stay, and how to RSVP. Can’t wait to see you there!</p>
   </main>
 
-  <footer>
-    &copy; 2025 Emma & Noah | All rights reserved
-  </footer>
+  <!-- Shared footer will be loaded here -->
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
+  </script>
 
 </body>
 </html>
