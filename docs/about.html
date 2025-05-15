@@ -50,12 +50,10 @@
   <div id="site-footer"></div>
 
   <script>
-    // Load shared header
     fetch('header.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-header').innerHTML = html);
 
-    // Load shared footer
     fetch('footer.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-footer').innerHTML = html);
