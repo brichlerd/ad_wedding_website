@@ -8,61 +8,65 @@
   <link rel="stylesheet" href="assets/css/gallery.css" />
   <style>
     main {
-      padding: 1rem;
       max-width: 1000px;
-      margin: auto;
+      margin: 2rem auto;
+      padding: 1rem;
     }
 
-    h2 {
+    h2, h3 {
       text-align: center;
-      color: #4a2f27;
-      margin-bottom: 2rem;
+      color: var(--text-color);
     }
 
     details {
-      margin-bottom: 2rem;
-      background: #ffffffcc;
-      padding: 1rem;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
       border-radius: 8px;
+      background-color: #ffffffcc;
     }
 
     summary {
-      font-size: 1.3rem;
-      font-weight: bold;
+      padding: 1rem;
+      font-size: 1.2rem;
       cursor: pointer;
+      font-weight: bold;
     }
 
-    .gallery-section {
+    .gallery {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 1rem;
-      margin-top: 1rem;
+      justify-content: center;
+      padding: 1rem;
     }
 
     .photo {
       position: relative;
       overflow: hidden;
-      flex: 1 1 100%;
-      max-width: 100%;
+      border-radius: 8px;
     }
 
     .photo img {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
+      max-width: 300px;
       border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .photo:hover img {
+      transform: scale(1.05);
     }
 
     .caption {
       position: absolute;
       bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0,0,0,0.6);
-      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
       padding: 0.5rem;
-      font-size: 0.9rem;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -71,17 +75,14 @@
       opacity: 1;
     }
 
-    @media (min-width: 600px) {
-      .photo {
-        flex: 1 1 calc(50% - 1rem);
-        max-width: calc(50% - 1rem);
+    @media (max-width: 600px) {
+      .gallery {
+        flex-direction: column;
+        align-items: center;
       }
-    }
 
-    @media (min-width: 900px) {
-      .photo {
-        flex: 1 1 calc(33.333% - 1rem);
-        max-width: calc(33.333% - 1rem);
+      .photo img {
+        max-width: 100%;
       }
     }
   </style>
@@ -93,36 +94,36 @@
   <main>
     <h2>Gallery</h2>
 
-    <!-- Section: Adventures -->
+    <!-- Adventures Section -->
     <details>
       <summary>Adventures</summary>
-      <div class="gallery-section">
-        <div class="photo"><img loading="lazy" src="assets/images/photo1.jpeg" alt="Photo 1"><div class="caption">Engaged! Saguaro National Park.</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo2.jpeg" alt="Photo 2"><div class="caption">Description 2</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo3.jpeg" alt="Photo 3"><div class="caption">Description 3</div></div>
+      <div class="gallery">
+        <div class="photo"><img data-src="assets/images/photo1.jpeg" alt="Photo 1"><div class="caption">Saguaro National Park engagement</div></div>
+        <div class="photo"><img data-src="assets/images/photo2.jpeg" alt="Photo 2"><div class="caption">Description 2</div></div>
+        <div class="photo"><img data-src="assets/images/photo3.jpeg" alt="Photo 3"><div class="caption">Description 3</div></div>
       </div>
     </details>
 
-    <!-- Section: Family -->
+    <!-- Family Section -->
     <details>
       <summary>Family</summary>
-      <div class="gallery-section">
-        <div class="photo"><img loading="lazy" src="assets/images/photo4.jpeg" alt="Photo 4"><div class="caption">Description 4</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo5.jpeg" alt="Photo 5"><div class="caption">Description 5</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo6.jpeg" alt="Photo 6"><div class="caption">Description 6</div></div>
+      <div class="gallery">
+        <div class="photo"><img data-src="assets/images/photo4.jpeg" alt="Photo 4"><div class="caption">Description 4</div></div>
+        <div class="photo"><img data-src="assets/images/photo5.jpeg" alt="Photo 5"><div class="caption">Description 5</div></div>
+        <div class="photo"><img data-src="assets/images/photo6.jpeg" alt="Photo 6"><div class="caption">Description 6</div></div>
       </div>
     </details>
 
-    <!-- Section: Friends -->
+    <!-- Friends Section -->
     <details>
       <summary>Friends</summary>
-      <div class="gallery-section">
-        <div class="photo"><img loading="lazy" src="assets/images/photo7.jpeg" alt="Photo 7"><div class="caption">Description 7</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo8.jpeg" alt="Photo 8"><div class="caption">Description 8</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo9.jpeg" alt="Photo 9"><div class="caption">Description 9</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo10.jpeg" alt="Photo 10"><div class="caption">Description 10</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo11.jpeg" alt="Photo 11"><div class="caption">Description 11</div></div>
-        <div class="photo"><img loading="lazy" src="assets/images/photo12.jpeg" alt="Photo 12"><div class="caption">Description 12</div></div>
+      <div class="gallery">
+        <div class="photo"><img data-src="assets/images/photo7.jpeg" alt="Photo 7"><div class="caption">Description 7</div></div>
+        <div class="photo"><img data-src="assets/images/photo8.jpeg" alt="Photo 8"><div class="caption">Description 8</div></div>
+        <div class="photo"><img data-src="assets/images/photo9.jpeg" alt="Photo 9"><div class="caption">Description 9</div></div>
+        <div class="photo"><img data-src="assets/images/photo10.jpeg" alt="Photo 10"><div class="caption">Description 10</div></div>
+        <div class="photo"><img data-src="assets/images/photo11.jpeg" alt="Photo 11"><div class="caption">Description 11</div></div>
+        <div class="photo"><img data-src="assets/images/photo12.jpeg" alt="Photo 12"><div class="caption">Description 12</div></div>
       </div>
     </details>
   </main>
@@ -130,6 +131,7 @@
   <div id="site-footer"></div>
 
   <script>
+    // Load header and footer
     fetch('header.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-header').innerHTML = html);
@@ -137,6 +139,18 @@
     fetch('footer.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-footer').innerHTML = html);
+
+    // Lazy load images when section is opened
+    document.querySelectorAll('details').forEach(section => {
+      section.addEventListener('toggle', () => {
+        if (section.open) {
+          section.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.getAttribute('data-src');
+            img.removeAttribute('data-src');
+          });
+        }
+      });
+    });
   </script>
 
 </body>
