@@ -6,6 +6,85 @@
   <title>Gallery</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/gallery.css" />
+  <style>
+    main {
+      padding: 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4a2f27;
+      margin-bottom: 2rem;
+    }
+
+    details {
+      margin-bottom: 2rem;
+      background: #ffffffcc;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    summary {
+      font-size: 1.3rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .gallery-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .photo {
+      position: relative;
+      overflow: hidden;
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    .photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .photo:hover .caption {
+      opacity: 1;
+    }
+
+    @media (min-width: 600px) {
+      .photo {
+        flex: 1 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .photo {
+        flex: 1 1 calc(33.333% - 1rem);
+        max-width: calc(33.333% - 1rem);
+      }
+    }
+  </style>
 </head>
 <body id="top">
 
@@ -13,21 +92,39 @@
 
   <main>
     <h2>Gallery</h2>
-    <div class="gallery">
-      <!-- 12 image slots -->
-      <div class="photo"><img src="assets/images/photo1.jpeg" alt="Photo 1"><div class="caption">Engaged! Saguaro National Park. Fun fact: saguaro cacti live to 200 years old!</div></div>
-      <div class="photo"><img src="assets/images/photo2.jpeg" alt="Photo 2"><div class="caption">Description 2</div></div>
-      <div class="photo"><img src="assets/images/photo3.jpeg" alt="Photo 3"><div class="caption">Description 3</div></div>
-      <div class="photo"><img src="assets/images/photo4.jpeg" alt="Photo 4"><div class="caption">Description 4</div></div>
-      <div class="photo"><img src="assets/images/photo5.jpeg" alt="Photo 5"><div class="caption">Description 5</div></div>
-      <div class="photo"><img src="assets/images/photo6.jpeg" alt="Photo 6"><div class="caption">Description 6</div></div>
-      <div class="photo"><img src="assets/images/photo7.jpeg" alt="Photo 7"><div class="caption">Description 7</div></div>
-      <div class="photo"><img src="assets/images/photo8.jpeg" alt="Photo 8"><div class="caption">Description 8</div></div>
-      <div class="photo"><img src="assets/images/photo9.jpeg" alt="Photo 9"><div class="caption">Description 9</div></div>
-      <div class="photo"><img src="assets/images/photo10.jpeg" alt="Photo 10"><div class="caption">Description 10</div></div>
-      <div class="photo"><img src="assets/images/photo11.jpeg" alt="Photo 11"><div class="caption">Description 11</div></div>
-      <div class="photo"><img src="assets/images/photo12.jpeg" alt="Photo 12"><div class="caption">Description 12</div></div>
-    </div>
+
+    <!-- Section: Adventures -->
+    <details>
+      <summary>Adventures</summary>
+      <div class="gallery-section">
+        <div class="photo"><img loading="lazy" src="assets/images/photo1.jpeg" alt="Photo 1"><div class="caption">Engaged! Saguaro National Park.</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo2.jpeg" alt="Photo 2"><div class="caption">Description 2</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo3.jpeg" alt="Photo 3"><div class="caption">Description 3</div></div>
+      </div>
+    </details>
+
+    <!-- Section: Family -->
+    <details>
+      <summary>Family</summary>
+      <div class="gallery-section">
+        <div class="photo"><img loading="lazy" src="assets/images/photo4.jpeg" alt="Photo 4"><div class="caption">Description 4</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo5.jpeg" alt="Photo 5"><div class="caption">Description 5</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo6.jpeg" alt="Photo 6"><div class="caption">Description 6</div></div>
+      </div>
+    </details>
+
+    <!-- Section: Friends -->
+    <details>
+      <summary>Friends</summary>
+      <div class="gallery-section">
+        <div class="photo"><img loading="lazy" src="assets/images/photo7.jpeg" alt="Photo 7"><div class="caption">Description 7</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo8.jpeg" alt="Photo 8"><div class="caption">Description 8</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo9.jpeg" alt="Photo 9"><div class="caption">Description 9</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo10.jpeg" alt="Photo 10"><div class="caption">Description 10</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo11.jpeg" alt="Photo 11"><div class="caption">Description 11</div></div>
+        <div class="photo"><img loading="lazy" src="assets/images/photo12.jpeg" alt="Photo 12"><div class="caption">Description 12</div></div>
+      </div>
+    </details>
   </main>
 
   <div id="site-footer"></div>
