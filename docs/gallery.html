@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/gallery.css" />
   <style>
     main {
       max-width: 1000px;
@@ -13,7 +12,7 @@
       padding: 1rem;
     }
 
-    h2, h3 {
+    h2 {
       text-align: center;
       color: var(--text-color);
     }
@@ -94,44 +93,28 @@
   <main>
     <h2>Gallery</h2>
 
-    <!-- Adventures Section -->
+    <!-- Adventures -->
     <details>
       <summary>Adventures</summary>
-      <div class="gallery">
-        <div class="photo"><img data-src="assets/images/photo1.jpeg" alt="Photo 1"><div class="caption">Saguaro National Park engagement</div></div>
-        <div class="photo"><img data-src="assets/images/photo2.jpeg" alt="Photo 2"><div class="caption">Description 2</div></div>
-        <div class="photo"><img data-src="assets/images/photo3.jpeg" alt="Photo 3"><div class="caption">Description 3</div></div>
-      </div>
+      <div class="gallery" id="adventures-gallery"></div>
     </details>
 
-    <!-- Family Section -->
+    <!-- Family -->
     <details>
       <summary>Family</summary>
-      <div class="gallery">
-        <div class="photo"><img data-src="assets/images/photo4.jpeg" alt="Photo 4"><div class="caption">Description 4</div></div>
-        <div class="photo"><img data-src="assets/images/photo5.jpeg" alt="Photo 5"><div class="caption">Description 5</div></div>
-        <div class="photo"><img data-src="assets/images/photo6.jpeg" alt="Photo 6"><div class="caption">Description 6</div></div>
-      </div>
+      <div class="gallery" id="family-gallery"></div>
     </details>
 
-    <!-- Friends Section -->
+    <!-- Friends -->
     <details>
       <summary>Friends</summary>
-      <div class="gallery">
-        <div class="photo"><img data-src="assets/images/photo7.jpeg" alt="Photo 7"><div class="caption">Description 7</div></div>
-        <div class="photo"><img data-src="assets/images/photo8.jpeg" alt="Photo 8"><div class="caption">Description 8</div></div>
-        <div class="photo"><img data-src="assets/images/photo9.jpeg" alt="Photo 9"><div class="caption">Description 9</div></div>
-        <div class="photo"><img data-src="assets/images/photo10.jpeg" alt="Photo 10"><div class="caption">Description 10</div></div>
-        <div class="photo"><img data-src="assets/images/photo11.jpeg" alt="Photo 11"><div class="caption">Description 11</div></div>
-        <div class="photo"><img data-src="assets/images/photo12.jpeg" alt="Photo 12"><div class="caption">Description 12</div></div>
-      </div>
+      <div class="gallery" id="friends-gallery"></div>
     </details>
   </main>
 
   <div id="site-footer"></div>
 
   <script>
-    // Load header and footer
     fetch('header.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-header').innerHTML = html);
@@ -140,14 +123,54 @@
       .then(res => res.text())
       .then(html => document.getElementById('site-footer').innerHTML = html);
 
-    // Lazy load images when section is opened
+    // Define the image lists manually
+    const galleries = {
+      adventures: ['adventures1.jpeg', 'adventures2.jpeg', 'adventures3.jpeg'],
+      family: ['photo4.jpeg', 'photo5.jpeg', 'photo6.jpeg'],
+      friends: ['photo7.jpeg', 'photo8.jpeg', 'photo9.jpeg', 'photo10.jpeg', 'photo11.jpeg', 'photo12.jpeg']
+    };
+
+    function loadGallery(sectionId, folderName, images) {
+      const container = document.getElementById(sectionId);
+      images.forEach((file, i) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'photo';
+
+        const img = document.createElement('img');
+        img.setAttribute('data-src', `assets/images/${folderName}/${file}`);
+        img.setAttribute('alt', `${folderName} photo ${i + 1}`);
+
+        const caption = document.createElement('div');
+        caption.className = 'caption';
+        caption.innerText = `Description ${i + 1}`;
+
+        wrapper.appendChild(img);
+        wrapper.appendChild(caption);
+        container.appendChild(wrapper);
+      });
+    }
+
+    // Lazy load on section open
     document.querySelectorAll('details').forEach(section => {
       section.addEventListener('toggle', () => {
-        if (section.open) {
+        if (section.open && !section.dataset.loaded) {
+          if (section.querySelector('#adventures-gallery')) {
+            loadGallery('adventures-gallery', 'adventures', galleries.adventures);
+          }
+          if (section.querySelector('#family-gallery')) {
+            loadGallery('family-gallery', 'family', galleries.family);
+          }
+          if (section.querySelector('#friends-gallery')) {
+            loadGallery('friends-gallery', 'friends', galleries.friends);
+          }
+
+          // Load actual image src
           section.querySelectorAll('img[data-src]').forEach(img => {
             img.src = img.getAttribute('data-src');
             img.removeAttribute('data-src');
           });
+
+          section.dataset.loaded = "true"; // Mark as loaded
         }
       });
     });
