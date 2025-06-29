@@ -3,79 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Location & Accommodations | Emma & Noah's Wedding</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Wedding Location</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #add884;
+      padding: 0;
+      background-color: #fdfdfd;
       color: #333;
     }
 
-    nav {
+    header, section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .map-container {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
 
-    nav a {
+    iframe {
+      border: 0;
+      width: 90%;
+      height: 500px;
+      max-width: 900px;
+    }
+
+    .airbnb-link {
+      margin-top: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      display: inline-block;
       text-decoration: none;
-      color: #5a3e36;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background-color 0.3s;
+      color: #8a4baf;
+      transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      background-color: #e9dcd3;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.7;
-    }
-
-    h2 {
-      text-align: center;
-      color: #4a2f27;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #777;
+    .airbnb-link:hover {
+      color: #5c2d91;
     }
   </style>
 </head>
 <body>
 
-  <!-- Shared header will be loaded here -->
-  <div id="site-header"></div>
+  <header>
+    <h1>Wedding Location</h1>
+    <p>Join us at Blissful Ridge Lodge in Logan, Ohio for our wedding celebration! See google map below for the address and directions.</p>
+  </header>
 
-  <main>
-    <h2>Location & Accommodations</h2>
-    <p>Details coming soon! We’ll provide all the information you need about the ceremony and reception locations, recommended hotels, and local attractions.</p>
-  </main>
+  <section class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/place/Blissful+Ridge+Lodge/@39.5804521,-82.4986144,17z/data=!4m14!1m7!3m6!1s0x8847ef8d4d3ab50d:0xfa17f6001e7d0100!2sAmong+The+Trees+Lodging!8m2!3d39.578451!4d-82.4961682!16s%2Fg%2F11fk18ygnx!3m5!1s0x8847f3d35ed80c53:0x43d7d3515ccdd8c!8m2!3d39.5814844!4d-82.4977026!16s%2Fg%2F11hfythvc2!5m1!1e4?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" 
+      allowfullscreen 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
 
-  <!-- Shared footer will be loaded here -->
-  <div id="site-footer"></div>
-
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-header').innerHTML = html);
-
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-footer').innerHTML = html);
-  </script>
+  <section>
+    <a 
+      href="https://www.airbnb.com/s/Logan--OH--United-States/homes?adults=2&place_id=ChIJl7oJu31oOIgRNCqf4U-VHiA" 
+      class="airbnb-link" 
+      target="_blank">
+      Airbnb’s Nearby
+    </a>
+  </section>
 
 </body>
 </html>
