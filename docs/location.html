@@ -3,37 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Location & Accommodations | Emma & Noah's Wedding</title>
+  <title>Location & Accommodations | Ashley & Danny's Wedding</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #add884;
-      color: #333;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #5a3e36;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #e9dcd3;
-    }
-
     main {
       max-width: 800px;
       margin: 2rem auto;
@@ -46,77 +18,69 @@
       color: #4a2f27;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #777;
+    .map-container {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
     }
-    
-      .map-container {
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0;
-  }
 
-  .map-container iframe {
-    border: 0;
-    width: 100%;
-    height: 450px;
-    max-width: 100%;
-  }
+    .map-container iframe {
+      border: 0;
+      width: 100%;
+      height: 450px;
+      max-width: 100%;
+    }
 
-  .airbnb-link-wrapper {
-    text-align: center;
-    margin-top: 1.5rem;
-  }
+    .airbnb-link-wrapper {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
 
-  .airbnb-link {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: #5a3e36;
-    transition: color 0.3s ease;
-  }
+    .airbnb-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: #5a3e36;
+      transition: color 0.3s ease;
+    }
 
-  .airbnb-link:hover {
-    color: #3a2a22;
-  }
-
+    .airbnb-link:hover {
+      color: #3a2a22;
+    }
   </style>
 </head>
-<body>
+<body id="top">
 
-  <!-- Shared header will be loaded here -->
+  <!-- Shared header -->
   <div id="site-header"></div>
 
-<main>
-  <h2>Location & Accommodations</h2>
-  <p>Join us at Blissful Ridge Lodge in Logan, Ohio for our wedding celebration! Use the map below for directions and nearby accommodations.</p>
+  <main>
+    <h2>Location & Accommodations</h2>
+    <p>Join us at Blissful Ridge Lodge in Logan, Ohio for our wedding celebration! Use the map below for directions and nearby accommodations.</p>
 
-<div class="map-container">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.3198647090963!2d-82.50088782393328!3d39.58045757156813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8847f3d35ed80c53%3A0x43d7d3515ccdd8c!2sBlissful%20Ridge%20Lodge!5e0!3m2!1sen!2sus!4v1719787494297!5m2!1sen!2sus" 
-    width="600" 
-    height="450" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.3198647090963!2d-82.50088782393328!3d39.58045757156813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8847f3d35ed80c53%3A0x43d7d3515ccdd8c!2sBlissful%20Ridge%20Lodge!5e0!3m2!1sen!2sus!4v1719787494297!5m2!1sen!2sus" 
+        width="600" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
 
-  <div class="airbnb-link-wrapper">
-    <a 
-      href="https://www.airbnb.com/s/Logan--OH--United-States/homes?adults=2&place_id=ChIJl7oJu31oOIgRNCqf4U-VHiA" 
-      target="_blank" 
-      class="airbnb-link">
-      Airbnb’s Nearby
-    </a>
-  </div>
-</main>
+    <div class="airbnb-link-wrapper">
+      <a 
+        href="https://www.airbnb.com/s/Logan--OH--United-States/homes?adults=2&place_id=ChIJl7oJu31oOIgRNCqf4U-VHiA" 
+        target="_blank" 
+        class="airbnb-link">
+        Airbnb’s Nearby
+      </a>
+    </div>
+  </main>
 
-  <!-- Shared footer will be loaded here -->
+  <!-- Shared footer -->
   <div id="site-footer"></div>
 
   <script>
