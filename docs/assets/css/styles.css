@@ -1,117 +1,147 @@
+/* Add to your HTML <head>:
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+*/
+
 :root {
-    --main-bg: #add884;
-    --header-bg: #8cbf5f;
-    --text-color: #333;
-    --nav-link-color: #5a3e36;
-    --nav-link-hover: #e9dcd3;
-  }
-  
-  /* Make page fill screen and center everything */
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Georgia', serif;
-    background-color: var(--main-bg);
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Header styles */
-  header {
-    background-color: var(--header-bg);
-    padding: 1.5rem 1rem;
-    text-align: center;
-    width: 100%;
-  }
-  
-  /* Navigation bar styles */
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: var(--nav-link-color);
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-  }
-  
-  nav a:hover {
-    background-color: var(--nav-link-hover);
-  }
-  
-  /* Main content centered, grow to fill space */
-  main {
-    flex: 1;
-    width: 100%;
-    max-width: 1000px;
-    padding: 2rem 1rem;
-    text-align: center;
-  }
-  
-  /* Footer centered and sticky to bottom if content is short */
-  footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    width: 100%;
-    color: var(--text-color);
-  }
-  
-  footer a {
-    color: var(--nav-link-color);
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
-  .gallery {
-    column-count: 3;
-    column-gap: 1rem;
-    padding: 1rem;
-  }
-  
-  .photo {
-    break-inside: avoid;
-    margin-bottom: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .photo img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-  }
-  
-  /* Caption appears on hover */
-  .caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .photo:hover .caption {
-    opacity: 1;
-  }
-  
+  --main-bg: #fff;
+  --header-bg: #f5f5f5;
+  --text-color: #2d2d2d;
+  --nav-link-color: #5a3e36;
+  --nav-link-hover: #e9dcd3;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', Arial, sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Tree outlines as SVG backgrounds on left and right */
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="80" height="600" xmlns="http://www.w3.org/2000/svg"><path d="M40 600 Q20 500 40 400 Q60 300 40 200 Q20 100 40 0" stroke="%23b2b2b2" stroke-width="2" fill="none"/><path d="M40 400 Q30 350 40 300 Q50 250 40 200" stroke="%23b2b2b2" stroke-width="1" fill="none"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg width="80" height="600" xmlns="http://www.w3.org/2000/svg"><path d="M40 600 Q60 500 40 400 Q20 300 40 200 Q60 100 40 0" stroke="%23b2b2b2" stroke-width="2" fill="none"/><path d="M40 400 Q50 350 40 300 Q30 250 40 200" stroke="%23b2b2b2" stroke-width="1" fill="none"/></svg>');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;
+  background-size: 80px 600px, 80px 600px;
+}
+
+header {
+  background-color: var(--header-bg);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+header h1, header h2, header h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #3b3b3b;
+  margin-bottom: 0.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--nav-link-color);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+nav a:hover {
+  background-color: var(--nav-link-hover);
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem 1rem;
+  text-align: center;
+  background: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+p, li, span, a, label, input, textarea {
+  font-family: 'Lato', Arial, sans-serif;
+  font-size: 1.05rem;
+  color: var(--text-color);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  width: 100%;
+  color: var(--text-color);
+  background: transparent;
+}
+
+footer a {
+  color: var(--nav-link-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.gallery {
+  column-count: 3;
+  column-gap: 1rem;
+  padding: 1rem;
+}
+
+.photo {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.photo:hover .caption {
+  opacity: 1;
+}
