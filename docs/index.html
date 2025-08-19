@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome to Our Wedding</title>
+  <title>Ashley & Danny's Wedding</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -28,12 +30,104 @@
       font-size: 0.9rem;
       color: var(--text-color);
     }
+
+    /* Hero section for Zola-style look */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      width: 100vw;
+      background: url('assets/images/background_image.jpeg') center center/cover no-repeat fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(34,34,34,0.45);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      width: 100%;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    .hero-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+    .hero-content p {
+      font-family: 'Lato', Arial, sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    nav.hero-nav {
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 3;
+      gap: 1.5rem;
+    }
+    nav.hero-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Lato', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+      background: rgba(0,0,0,0.15);
+    }
+    nav.hero-nav a:hover {
+      background: rgba(255,255,255,0.15);
+    }
+    @media (max-width: 600px) {
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content h2 { font-size: 1.2rem; }
+      nav.hero-nav { gap: 0.5rem; }
+      nav.hero-nav a { font-size: 1rem; padding: 0.4rem 0.7rem; }
+    }
   </style>
 </head>
 <body>
 
   <!-- Shared header will be loaded here -->
   <div id="site-header"></div>
+
+  <div class="hero">
+    <nav class="hero-nav">
+      <a href="index.html">Home</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="registry.html">Registry</a>
+      <a href="info.html">Info</a>
+    </nav>
+    <div class="hero-content">
+      <h1>Ashley & Danny</h1>
+      <h2>August 19, 2025</h2>
+      <p>Among the Trees, Colorado</p>
+    </div>
+  </div>
 
   <main>
     <h2>Welcome!</h2>
