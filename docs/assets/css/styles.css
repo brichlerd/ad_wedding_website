@@ -34,7 +34,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: url('assets/images/background_image.jpeg') center center/cover no-repeat fixed;
+  background: url('../images/background_image.jpeg') center center/cover no-repeat fixed;
   color: #2d2d2d;
   font-family: 'Lato', Arial, sans-serif;
   /* Optional: Add a dark overlay for readability */
