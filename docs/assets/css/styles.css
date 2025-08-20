@@ -21,13 +21,6 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Tree outlines as SVG backgrounds on left and right */
-  background-image:
-    url('data:image/svg+xml;utf8,<svg width="80" height="600" xmlns="http://www.w3.org/2000/svg"><path d="M40 600 Q20 500 40 400 Q60 300 40 200 Q20 100 40 0" stroke="%23b2b2b2" stroke-width="2" fill="none"/><path d="M40 400 Q30 350 40 300 Q50 250 40 200" stroke="%23b2b2b2" stroke-width="1" fill="none"/></svg>'),
-    url('data:image/svg+xml;utf8,<svg width="80" height="600" xmlns="http://www.w3.org/2000/svg"><path d="M40 600 Q60 500 40 400 Q20 300 40 200 Q60 100 40 0" stroke="%23b2b2b2" stroke-width="2" fill="none"/><path d="M40 400 Q50 350 40 300 Q30 250 40 200" stroke="%23b2b2b2" stroke-width="1" fill="none"/></svg>');
-  background-repeat: no-repeat, no-repeat;
-  background-position: left top, right top;
-  background-size: 80px 600px, 80px 600px;
 }
 
 body {
@@ -37,10 +30,10 @@ body {
   background: url('../images/background_image.jpeg') center center/cover no-repeat fixed;
   color: #2d2d2d;
   font-family: 'Lato', Arial, sans-serif;
-  /* Optional: Add a dark overlay for readability */
   position: relative;
 }
 
+/* Overlay for readability on all pages */
 body::before {
   content: "";
   position: fixed;
@@ -48,6 +41,12 @@ body::before {
   background: rgba(34, 34, 34, 0.45); /* semi-transparent overlay */
   z-index: 0;
   pointer-events: none;
+}
+
+/* Ensure all main content is above the overlay */
+main, header, footer, .hero-content, nav {
+  position: relative;
+  z-index: 1;
 }
 
 header {
@@ -87,6 +86,37 @@ nav a {
 
 nav a:hover {
   background-color: var(--nav-link-hover);
+}
+
+/* Transparent overlay navigation for all pages */
+nav.hero-nav {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  gap: 1.5rem;
+}
+nav.hero-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Lato', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+  background: rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+nav.hero-nav a:hover {
+  background: rgba(255,255,255,0.15);
+}
+@media (max-width: 600px) {
+  nav.hero-nav { gap: 0.5rem; }
+  nav.hero-nav a { font-size: 1rem; padding: 0.4rem 0.7rem; }
 }
 
 main {

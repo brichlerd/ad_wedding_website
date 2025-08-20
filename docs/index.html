@@ -10,24 +10,8 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
+      font-family: 'Lato', Arial, sans-serif;
       background-color: var(--main-bg);
-      color: var(--text-color);
-    }
-
-    main {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 16px;
-      max-width: 700px;
-      margin: 3rem auto;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
       color: var(--text-color);
     }
 
@@ -57,6 +41,7 @@
       text-align: center;
       padding: 2rem 1rem;
       width: 100%;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.55), 0 1px 2px rgba(0,0,0,0.7);
     }
     .hero-content h1 {
       font-family: 'Playfair Display', serif;
@@ -64,6 +49,8 @@
       font-weight: 900;
       margin-bottom: 1rem;
       letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.8);
     }
     .hero-content h2 {
       font-family: 'Playfair Display', serif;
@@ -71,11 +58,15 @@
       font-weight: 700;
       margin-bottom: 2rem;
       letter-spacing: 1px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
     .hero-content p {
       font-family: 'Lato', Arial, sans-serif;
       font-size: 1.2rem;
       margin-bottom: 2rem;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
     nav.hero-nav {
       position: absolute;
@@ -97,6 +88,7 @@
       border-radius: 6px;
       transition: background 0.2s;
       background: rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     nav.hero-nav a:hover {
       background: rgba(255,255,255,0.15);
@@ -107,12 +99,27 @@
       nav.hero-nav { gap: 0.5rem; }
       nav.hero-nav a { font-size: 1rem; padding: 0.4rem 0.7rem; }
     }
+
+    main {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 16px;
+      max-width: 700px;
+      margin: 3rem auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-color);
+    }
   </style>
 </head>
 <body>
-
-  <!-- Shared header will be loaded here -->
-  <div id="site-header"></div>
 
   <div class="hero">
     <nav class="hero-nav">
@@ -138,10 +145,6 @@
   <div id="site-footer"></div>
 
   <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-header').innerHTML = html);
-
     fetch('footer.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-footer').innerHTML = html);
