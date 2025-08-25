@@ -4,35 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RSVP | Ashley & Danny's Wedding</title>
-  <!-- Reference styles.css and Google Fonts in the head -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Shared header will be loaded here -->
+  <!-- Shared header -->
   <div id="site-header"></div>
-
+  <!-- Title section below header -->
+  <div class="hero-content">
+    <h1>Ashley & Danny</h1>
+    <h2>October 3rd, 2026</h2>
+    <p>Among the Trees</p>
+  </div>
+  <!-- Main content -->
   <main>
-    <h2>RSVP</h2>
     <p>Please let us know if you’ll be joining us for our special day by filling out the form below.</p>
-
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHfZwOez2EJL3srxxR3r_mksu4J3cN_6Ykv0DYTWWrQuteKg/viewform?embedded=true" marginheight="0" marginwidth="0" style="width:100%;max-width:640px;height:967px;border:none;">Loading…</iframe>
   </main>
-
-  <!-- Shared footer will be loaded here -->
   <div id="site-footer"></div>
-
   <script>
     fetch('header.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-header').innerHTML = html);
-
     fetch('footer.html')
       .then(res => res.text())
       .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
-
 </body>
 </html>
