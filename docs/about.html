@@ -44,11 +44,17 @@
 
   <script>
     fetch('header.html')
-      .then(res => res.text())
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load header');
+        return res.text();
+      })
       .then(html => document.getElementById('site-header').innerHTML = html);
 
     fetch('footer.html')
-      .then(res => res.text())
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load footer');
+        return res.text();
+      })
       .then(html => document.getElementById('site-footer').innerHTML = html);
   </script>
 

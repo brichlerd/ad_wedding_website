@@ -142,20 +142,25 @@ footer {
   padding: 2rem;
   font-size: 0.9rem;
   width: 100%;
-  color: var(--text-color);
-  background: transparent;
   position: relative;
   z-index: 1;
 }
 
+footer p {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
 footer a {
-  color: var(--nav-link-color);
+  color: #fff;
   font-weight: bold;
   text-decoration: none;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 footer a:hover {
   text-decoration: underline;
+  color: var(--nav-link-hover);
 }
 
 /* Gallery */
