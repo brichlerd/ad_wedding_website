@@ -8,55 +8,47 @@
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
 </head>
-<body>
-
-  <!-- Shared header will be loaded here -->
+<body id="top">
+  <!-- Shared header -->
   <div id="site-header"></div>
-
+  
+  <!-- Title section below header (same structure as index.html) -->
   <div class="hero-content">
-    <h1>Ashley & Danny</h1>
-    <h2>October 3rd, 2026</h2>
-    <p>Among the Trees</p>
+    <h1>Our Story</h1>
+    <h2>A Tale of Two Hearts</h2>
   </div>
 
-  <!-- Main content -->
   <main>
-    <h2>The Tale of Shelldon & Della</h2>
     <p>
-      Once upon a time in the sun-dappled glade of Everwood Forest, a quiet turtle named Shelldon spent his days sketching leaves and watching clouds drift lazily across the sky. He wasn’t in a hurry — after all, turtles rarely are.
+      Once upon a time in the sun-dappled glade of Everwood Forest, a quiet turtle named Shelldon spent his days sketching leaves and watching clouds drift lazily across the sky. He wasn't in a hurry — after all, turtles rarely are.
     </p>
     <p>
       One spring morning, while searching for the perfect mushroom to shade his sketchpad, Shelldon heard the lightest footsteps — like whispers on moss. It was Della, a curious deer with bright eyes and a love for poetry.
     </p>
     <p>
-      They talked — about clouds, mushrooms, and moonlight. Days turned into weeks, and their unlikely friendship blossomed into something more. Shelldon wrote haikus about Della’s laughter. Della read stories aloud while Shelldon napped beside her.
+      They talked — about clouds, mushrooms, and moonlight. Days turned into weeks, and their unlikely friendship blossomed into something more. Shelldon wrote haikus about Della's laughter. Della read stories aloud while Shelldon napped beside her.
     </p>
     <p>
-      Other animals whispered — "A turtle and a deer?" But love in Everwood knows no bounds. They built a tiny bench by the stream where they watched the stars every night. And under the Harvest Moon, Shelldon carved “Will you marry me?” into a smooth river stone. Della said yes with a nuzzle.
+      Other animals whispered — "A turtle and a deer?" But love in Everwood knows no bounds. They built a tiny bench by the stream where they watched the stars every night. And under the Harvest Moon, Shelldon carved "Will you marry me?" into a smooth river stone. Della said yes with a nuzzle.
     </p>
     <p>
       Now, surrounded by friends of feather and fur, we invite you to witness the magical union of Shelldon the turtle and Della the deer — a love story slow, strong, and forever.
     </p>
   </main>
 
-  <!-- Shared footer will be loaded here -->
   <div id="site-footer"></div>
 
   <script>
+    // load shared header/footer (with basic error handling)
     fetch('header.html')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to load header');
-        return res.text();
-      })
-      .then(html => document.getElementById('site-header').innerHTML = html);
+      .then(res => { if (!res.ok) throw new Error('header load failed'); return res.text(); })
+      .then(html => document.getElementById('site-header').innerHTML = html)
+      .catch(err => console.error(err));
 
     fetch('footer.html')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to load footer');
-        return res.text();
-      })
-      .then(html => document.getElementById('site-footer').innerHTML = html);
+      .then(res => { if (!res.ok) throw new Error('footer load failed'); return res.text(); })
+      .then(html => document.getElementById('site-footer').innerHTML = html)
+      .catch(err => console.error(err));
   </script>
-
 </body>
 </html>

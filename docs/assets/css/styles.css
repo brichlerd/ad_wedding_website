@@ -1,6 +1,6 @@
 /* Google Fonts */
 :root {
-  --main-bg: #fff;
+  --main-bg: transparent; /* was white */
   --header-bg: #f5f5f5;
   --text-color: #2d2d2d;
   --nav-link-color: #5a3e36;
@@ -12,7 +12,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', Arial, sans-serif;
-  background-color: var(--main-bg);
+  background-color: transparent; /* ensure no white background */
   color: var(--text-color);
 }
 
@@ -22,6 +22,7 @@ body {
   background: url('../images/background_image.jpeg') center center/cover no-repeat fixed;
   position: relative;
   box-sizing: border-box;
+  background-color: transparent;
 }
 
 /* Overlay for readability on all pages */
@@ -136,19 +137,27 @@ p, li, span, a, label, input, textarea {
   color: var(--text-color);
 }
 
-/* Footer */
+/* Footer (force transparent + higher stacking to sit above overlay/main) */
 footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  width: 100%;
   position: relative;
-  z-index: 1;
+  z-index: 4 !important;               /* put footer above overlay and main */
+  background: transparent !important;  /* ensure no background color */
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Ensure paragraph and links inside footer are transparent and visible */
+footer, footer * {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 footer p {
   color: #fff;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  margin: 0.25rem 0;
 }
 
 footer a {
