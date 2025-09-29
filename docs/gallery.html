@@ -7,13 +7,55 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+
+  <!-- Scoped styles JUST for the tab visuals -->
+  <style>
+    /* Tab bar container (visuals only; does not affect page layout outside the tab row) */
+    .tabbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.25rem;                 /* spacing between labels like the example */
+      border-bottom: 1px solid rgba(0,0,0,0.10);
+      margin: 0 0 1.25rem;          /* space below the tabs before the gallery */
+    }
+    /* Reset buttons to look like text labels */
+    .tabbar [role="tab"] {
+      appearance: none;
+      background: none;
+      border: 0;
+      padding: 0.75rem 0;           /* vertical breathing room */
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+    }
+    /* Hover & focus states (subtle, no layout shift) */
+    .tabbar [role="tab"]:hover { opacity: 0.85; }
+    .tabbar [role="tab"]:focus-visible {
+      outline: 2px solid rgba(26,115,232,0.6);   /* accessible ring */
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    /* Active underline like the screenshot */
+    .tabbar [role="tab"][aria-selected="true"]::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 3px;
+      background: #1a73e8;          /* blue underline */
+      border-radius: 3px 3px 0 0;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Shared header -->
+  <!-- Shared header (unchanged) -->
   <div id="site-header"></div>
-  <!-- Title section below header -->
 
+  <!-- Hero (unchanged) -->
   <div class="hero-content">
     <h1>Ashley & Danny</h1>
     <h2>October 3rd, 2026</h2>
@@ -23,103 +65,145 @@
   <main>
     <h2>Gallery</h2>
 
-    <!-- Adventures -->
-    <details>
-      <summary>Adventures</summary>
-      <div class="gallery" id="adventures-gallery"></div>
-    </details>
+    <!-- Tab list (visuals handled by .tabbar above) -->
+    <div class="tabbar" role="tablist" aria-label="Gallery filters">
+      <button
+        id="tab-adventures"
+        role="tab"
+        aria-selected="true"
+        aria-controls="adventures-gallery"
+        data-filter="adventures">
+        Adventures
+      </button>
+      <button
+        id="tab-family"
+        role="tab"
+        aria-selected="false"
+        aria-controls="family-gallery"
+        data-filter="family">
+        Family
+      </button>
+      <button
+        id="tab-friends"
+        role="tab"
+        aria-selected="false"
+        aria-controls="friends-gallery"
+        data-filter="friends">
+        Friends
+      </button>
+    </div>
 
-    <!-- Family -->
-    <details>
-      <summary>Family</summary>
-      <div class="gallery" id="family-gallery"></div>
-    </details>
+    <!-- Galleries (unchanged structure so your existing styles apply) -->
+    <div
+      id="adventures-gallery"
+      class="gallery"
+      role="tabpanel"
+      aria-labelledby="tab-adventures">
+    </div>
 
-    <!-- Friends -->
-    <details>
-      <summary>Friends</summary>
-      <div class="gallery" id="friends-gallery"></div>
-    </details>
+    <div
+      id="family-gallery"
+      class="gallery"
+      role="tabpanel"
+      aria-labelledby="tab-family"
+      style="display:none">
+    </div>
+
+    <div
+      id="friends-gallery"
+      class="gallery"
+      role="tabpanel"
+      aria-labelledby="tab-friends"
+      style="display:none">
+    </div>
   </main>
 
+  <!-- Shared footer (unchanged) -->
   <div id="site-footer"></div>
 
-  <!-- Modal for image preview -->
+  <!-- Modal (unchanged) -->
   <div id="image-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;">
     <span id="modal-close" style="position:absolute;top:2rem;right:2rem;font-size:2rem;color:#fff;cursor:pointer;">&times;</span>
     <img id="modal-img" src="" alt="" style="max-width:90vw;max-height:80vh;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.2);" />
   </div>
 
   <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-header').innerHTML = html);
+    // Keep existing header/footer includes
+    fetch('header.html').then(r => r.text()).then(html => { document.getElementById('site-header').innerHTML = html; });
+    fetch('footer.html').then(r => r.text()).then(html => { document.getElementById('site-footer').innerHTML = html; });
 
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('site-footer').innerHTML = html);
-
-    // Define the image lists manually
+    // Image lists (unchanged)
     const galleries = {
-      adventures: ['adventures1.jpeg', 'adventures2.jpeg', 'adventures3.jpeg','adventures4.jpeg','adventures5.jpeg','adventures6.jpeg',
-        'adventures7.jpeg','adventures8.jpeg','adventures9.jpeg','adventures10.jpeg','adventures11.jpeg','adventures12.jpeg'],
-      family: ['family1.jpeg', 'family2.jpeg', 'family3.jpeg', 'family4.jpeg', 'family5.jpeg', 'family6.jpeg',
-        'family7.jpeg','family8.jpeg','family9.jpeg','family10.jpeg','family11.jpeg','family12.jpeg'],
-      friends: ['friends1.jpeg', 'friends2.jpeg', 'friends3.jpeg', 'friends4.jpeg', 'friends5.jpeg', 'friends6.jpeg',
-        'friends7.jpeg','friends8.jpeg','friends9.jpeg','friends10.jpeg','friends11.jpeg','friends12.jpeg']
+      adventures: ['adventures1.jpeg','adventures2.jpeg','adventures3.jpeg','adventures4.jpeg','adventures5.jpeg','adventures6.jpeg','adventures7.jpeg','adventures8.jpeg','adventures9.jpeg','adventures10.jpeg','adventures11.jpeg','adventures12.jpeg'],
+      family:     ['family1.jpeg','family2.jpeg','family3.jpeg','family4.jpeg','family5.jpeg','family6.jpeg','family7.jpeg','family8.jpeg','family9.jpeg','family10.jpeg','family11.jpeg','family12.jpeg'],
+      friends:    ['friends1.jpeg','friends2.jpeg','friends3.jpeg','friends4.jpeg','friends5.jpeg','friends6.jpeg','friends7.jpeg','friends8.jpeg','friends9.jpeg','friends10.jpeg','friends11.jpeg','friends12.jpeg']
     };
 
     function loadGallery(sectionId, folderName, images) {
       const container = document.getElementById(sectionId);
+      if (!container || container.dataset.loaded === "true") return;
+
       images.forEach((file, i) => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'photo';
+        const wrap = document.createElement('div');
+        wrap.className = 'photo';
 
         const img = document.createElement('img');
         img.setAttribute('data-src', `assets/images/${folderName}/${file}`);
         img.setAttribute('alt', `${folderName} photo ${i + 1}`);
 
-        const caption = document.createElement('div');
-        caption.className = 'caption';
-        caption.innerText = `Description ${i + 1}`;
+        const cap = document.createElement('div');
+        cap.className = 'caption';
+        cap.textContent = `Description ${i + 1}`;
 
-        wrapper.appendChild(img);
-        wrapper.appendChild(caption);
-        container.appendChild(wrapper);
+        wrap.appendChild(img);
+        wrap.appendChild(cap);
+        container.appendChild(wrap);
       });
+
+      // Trigger actual load for this panel once visible the first time
+      container.querySelectorAll('img[data-src]').forEach(img => {
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+      });
+
+      container.dataset.loaded = "true";
     }
 
-    // Lazy load on section open
-    document.querySelectorAll('details').forEach(section => {
-      section.addEventListener('toggle', () => {
-        if (section.open && !section.dataset.loaded) {
-          if (section.querySelector('#adventures-gallery')) {
-            loadGallery('adventures-gallery', 'adventures', galleries.adventures);
-          }
-          if (section.querySelector('#family-gallery')) {
-            loadGallery('family-gallery', 'family', galleries.family);
-          }
-          if (section.querySelector('#friends-gallery')) {
-            loadGallery('friends-gallery', 'friends', galleries.friends);
-          }
+    // Tabs wiring (visuals handled by CSS; logic below unchanged from prior approach)
+    const tabButtons = Array.from(document.querySelectorAll('.tabbar [role="tab"]'));
+    const panels = {
+      adventures: document.getElementById('adventures-gallery'),
+      family: document.getElementById('family-gallery'),
+      friends: document.getElementById('friends-gallery')
+    };
 
-          // Load actual image src
-          section.querySelectorAll('img[data-src]').forEach(img => {
-            img.src = img.getAttribute('data-src');
-            img.removeAttribute('data-src');
-          });
+    function showTab(cat) {
+      tabButtons.forEach(btn => btn.setAttribute('aria-selected', btn.dataset.filter === cat ? 'true' : 'false'));
+      Object.entries(panels).forEach(([key, el]) => { el.style.display = (key === cat) ? '' : 'none'; });
 
-          section.dataset.loaded = "true"; // Mark as loaded
-        }
+      if (cat === 'adventures') loadGallery('adventures-gallery','adventures',galleries.adventures);
+      if (cat === 'family')     loadGallery('family-gallery','family',galleries.family);
+      if (cat === 'friends')    loadGallery('friends-gallery','friends',galleries.friends);
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => showTab(btn.dataset.filter));
+      btn.addEventListener('keydown', e => {
+        const i = tabButtons.indexOf(btn);
+        if (e.key === 'ArrowRight') { e.preventDefault(); tabButtons[(i + 1) % tabButtons.length].focus(); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); tabButtons[(i - 1 + tabButtons.length) % tabButtons.length].focus(); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showTab(btn.dataset.filter); }
       });
     });
 
-    // Modal logic
+    // Default: Adventures visible
+    showTab('adventures');
+
+    // Modal logic (unchanged)
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-img');
     const modalClose = document.getElementById('modal-close');
-
-    document.body.addEventListener('click', function(e) {
+    document.body.addEventListener('click', (e) => {
       if (e.target.matches('.photo img')) {
         modalImg.src = e.target.src;
         modalImg.alt = e.target.alt;
@@ -132,6 +216,5 @@
     });
   </script>
   <script src="assets/js/scripts.js" defer></script>
-
 </body>
 </html>
