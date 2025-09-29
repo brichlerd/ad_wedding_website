@@ -12,8 +12,10 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', Arial, sans-serif;
-  background-color: transparent; /* ensure no white background */
+  background-color: transparent;
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -82,44 +84,135 @@ main, header, footer, .hero-content, nav {
 
 /* Navigation */
 nav.hero-nav {
-  position: absolute;
-  top: 2rem;
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 3;
-  gap: 1.5rem;
+  padding: 1rem;
+  z-index: 1000;
+  background: transparent;
 }
 
 nav.hero-nav a {
-  color: #fff;
+  display: block;
+  padding: 0.75rem 1rem;
+  color: white;
   text-decoration: none;
-  font-family: 'Lato', Arial, sans-serif;
-  font-weight: bold;
   font-size: 1.1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
   transition: background 0.2s;
-  background: rgba(0,0,0,0.15);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 nav.hero-nav a:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.1);
 }
+
+/* Menu Toggle (Hamburger) - moved to upper-left with 1in safe-area margin */
+.menu-toggle {
+  display: block;
+  position: fixed;
+  top: calc(1in + env(safe-area-inset-top, 0px));
+  left: calc(1in + env(safe-area-inset-left, 0px));
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,0.2);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1002; /* keep above the nav panel */
+}
+
+/* off-canvas nav (hidden by default) - slide in from the LEFT now */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 280px;
+  height: 100vh;
+  background: rgba(0,0,0,0.94);
+  padding: 4rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: left 300ms ease;
+  z-index: 1000;
+  box-shadow: 8px 0 24px rgba(0,0,0,0.4); /* shadow to the right */
+  overflow-y: auto;
+}
+
+/* show when active */
+.nav-menu.active {
+  left: 0;
+}
+
+/* links inside the nav panel */
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  display: block;
+}
+
+/* keep hamburger animation */
+.hamburger {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger::before { top: -8px; }
+.hamburger::after  { bottom: -8px; }
+
+.menu-toggle.active .hamburger { background: transparent; }
+.menu-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
+.menu-toggle.active .hamburger::after  { transform: rotate(-45deg); bottom: 0; }
+
+/* Ensure the inline nav links in CSS earlier don't accidentally display separately:
+   (we keep nav.hero-nav a minimal so only the off-canvas menu shows)
+*/
+nav.hero-nav > a { display: none; }
+
+/* On very wide screens you might want the standard inline nav instead.
+   If so, remove the above rule and add a media query to show inline links
+   at large widths and hide the hamburger; currently nav is hidden by default.
+*/
 
 /* Main Content */
 main {
+  flex: 1 0 auto; /* This allows main content to grow but not shrink */
   text-align: center;
   padding: 3rem 1rem;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 16px;
-  max-width: 700px;
+  max-width: calc(100% - 2in);
+  width: 100%;
   margin: 2rem auto 3rem auto;
   position: relative;
   z-index: 2;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  min-height: 50vh; /* Ensures minimum height for content */
+}
+
+/* Add responsive fallback for smaller screens */
+@media screen and (max-width: 1000px) {
+  main {
+    max-width: calc(100% - 2rem); /* On smaller screens, use smaller margins */
+    margin: 2rem 1rem 3rem 1rem;
+  }
 }
 
 /* Typography */
@@ -139,13 +232,16 @@ p, li, span, a, label, input, textarea {
 
 /* Footer (force transparent + higher stacking to sit above overlay/main) */
 footer {
+  flex-shrink: 0; /* Prevents footer from shrinking */
   position: relative;
-  z-index: 4 !important;               /* put footer above overlay and main */
-  background: transparent !important;  /* ensure no background color */
+  z-index: 4 !important;
+  background: transparent !important;
   background-color: transparent !important;
   box-shadow: none !important;
   padding: 2rem;
   text-align: center;
+  margin-bottom: 1in; /* Add 1 inch margin at bottom */
+  width: 100%;
 }
 
 /* Ensure paragraph and links inside footer are transparent and visible */
@@ -217,4 +313,7 @@ footer a:hover {
   nav.hero-nav { gap: 0.5rem; }
   nav.hero-nav a { font-size: 1rem; padding: 0.4rem 0.7rem; }
   main { margin-top: 1.5rem; }
+  .nav-menu {
+    width: 100%;
+  }
 }
