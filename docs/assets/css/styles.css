@@ -43,6 +43,25 @@ main, header, footer, .hero-content, nav {
   z-index: 1;
 }
 
+/* thin, subtle section divider between blocks */
+.section-sep {
+  border: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.12);   /* subtle line over the background */
+  width: min(60%, 800px);
+  margin: 1.5rem auto;                  /* vertical spacing */
+  border-radius: 1px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
+}
+
+/* slightly larger spacer alternative (use <div class="spacer"> if needed) */
+.spacer { height: 1.25rem; }
+
+/* optional: force page break when printing */
+@media print {
+  .section-sep { page-break-after: always; }
+}
+
 /* Hero Content Styles */
 .hero-content {
   color: #fff;
@@ -91,6 +110,13 @@ nav.hero-nav {
   padding: 1rem;
   z-index: 1000;
   background: transparent;
+  padding-top: calc(1in + env(safe-area-inset-top, 12px));
+  padding-left: calc(1in + env(safe-area-inset-left, 12px));
+  padding-right: calc(1rem + env(safe-area-inset-right, 12px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;;
 }
 
 nav.hero-nav a {
@@ -109,9 +135,10 @@ nav.hero-nav a:hover {
 /* Menu Toggle (Hamburger) - moved to upper-left with 1in safe-area margin */
 .menu-toggle {
   display: block;
-  position: fixed;
-  top: calc(1in + env(safe-area-inset-top, 0px));
-  left: calc(1in + env(safe-area-inset-left, 0px));
+  position: absolute;
+  top: 30%;
+  /* top: calc(1in + env(safe-area-inset-top, 0px)); */
+  left: calc(.5in + env(safe-area-inset-left, 12px));
   width: 40px;
   height: 40px;
   background: rgba(0,0,0,0.2);
@@ -154,6 +181,11 @@ nav.hero-nav a:hover {
   border-radius: 8px;
   background: rgba(255,255,255,0.02);
   display: block;
+}
+
+/* fall-back for very small screens: keep it within padding area */
+@media (max-width: 420px) {
+  .menu-toggle { transform: translate(-0.5rem, -50%); }
 }
 
 /* keep hamburger animation */
