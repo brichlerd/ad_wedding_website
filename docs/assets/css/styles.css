@@ -338,6 +338,23 @@ footer a:hover {
   opacity: 1;
 }
 
+/* Responsive map styles - keeps map inside the main white frame and scales */
+.map-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.map-container .responsive-map {
+  width: 100%;
+  max-width: 100%;           /* never exceed the main content width */
+  aspect-ratio: 16 / 9;      /* keeps a good map height ratio on all screens */
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
 /* Media Queries */
 @media (max-width: 600px) {
   .hero-content h1 { font-size: 2rem; }
