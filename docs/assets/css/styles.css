@@ -43,6 +43,14 @@ main, header, footer, .hero-content, nav {
   z-index: 1;
 }
 
+/* About page: left-align paragraphs only on the About page */
+.about-main p {
+  text-align: left;
+  max-width: 48rem;     /* optional: improve line length for readability */
+  margin-left: 0;       /* ensure left edge aligns with main box */
+  margin-right: 0;
+}
+
 /* thin, subtle section divider between blocks */
 .section-sep {
   border: 0;
