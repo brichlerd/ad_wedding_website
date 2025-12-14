@@ -134,8 +134,8 @@
     // Image lists (unchanged)
     const galleries = {
       adventures: ['adventures1.jpeg','adventures2.jpeg','adventures3.jpeg','adventures4.jpeg','adventures5.jpeg','adventures6.jpeg','adventures7.jpeg','adventures8.jpeg','adventures9.jpeg','adventures10.jpeg','adventures11.jpeg','adventures12.jpeg'],
-      family:     ['family1.jpeg','family2.jpeg','family3.jpeg','family4.jpeg','family5.jpeg','family6.jpeg','family7.jpeg','family8.jpeg','family9.jpeg','family10.jpeg','family11.jpeg','family12.jpeg'],
-      friends:    ['friends1.jpeg','friends2.jpeg','friends3.jpeg','friends4.jpeg','friends5.jpeg','friends6.jpeg','friends7.jpeg','friends8.jpeg','friends9.jpeg','friends10.jpeg','friends11.jpeg','friends12.jpeg']
+      family:     ['family1.jpeg','family2.jpeg','family3.jpeg','family4.jpeg','family5.jpeg','family6.jpeg','family7.jpeg','family8.jpeg','family9.jpeg','family10.jpeg'],
+      friends:    ['friends1.jpeg','friends2.jpeg','friends3.jpeg','friends4.jpeg','friends5.jpeg','friends6.jpeg','friends7.jpeg','friends8.jpeg','friends9.jpeg','friends10.jpeg']
     };
 
     function loadGallery(sectionId, folderName, images) {
@@ -151,8 +151,6 @@
         img.setAttribute('alt', `${folderName} photo ${i + 1}`);
 
         const cap = document.createElement('div');
-        cap.className = 'caption';
-        cap.textContent = `Description ${i + 1}`;
 
         wrap.appendChild(img);
         wrap.appendChild(cap);
