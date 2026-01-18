@@ -20,11 +20,11 @@ html, body {
 
 body {
   min-height: 100vh;
-  min-width: 100vw;
   background: url('../images/background_image.jpeg') center center/cover no-repeat fixed;
   position: relative;
   box-sizing: border-box;
   background-color: transparent;
+  overflow-x: hidden;
 }
 
 /* Overlay for readability on all pages */
@@ -250,17 +250,20 @@ main {
   padding: 3rem 1rem;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 16px;
-  max-width: calc(100% - 2in);
+  max-width: 100%;
   width: 100%;
   margin: 2rem auto 3rem auto;
   position: relative;
   z-index: 2;
+  box-sizing: border-box; 
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   min-height: 50vh; /* Ensures minimum height for content */
 }
 
 /* Add responsive fallback for smaller screens */
 @media screen and (max-width: 1000px) {
+/* Add responsive fallback for larger screens */
+/* @media screen and (min-width: 1000px) { */
   main {
     max-width: calc(100% - 2rem); /* On smaller screens, use smaller margins */
     margin: 2rem 1rem 3rem 1rem;
