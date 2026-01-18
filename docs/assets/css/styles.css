@@ -297,6 +297,7 @@ footer {
   text-align: center;
   margin-bottom: 1in; /* Add 1 inch margin at bottom */
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* Ensure paragraph and links inside footer are transparent and visible */
