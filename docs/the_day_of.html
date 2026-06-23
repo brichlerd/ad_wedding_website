@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Day Of | Ashley & Danny's Wedding</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+  <style>
+    .timeline { width:100%; max-width:900px; margin:2rem auto; padding:1rem 0; }
+    .timeline-track { display:flex; align-items:flex-start; gap:1.25rem; padding:1rem 0; overflow:auto; }
+    .timeline-item { min-width:180px; background:rgba(255,255,255,0.95); border-radius:8px; padding:0.75rem; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+    .timeline .time { font-weight:700; font-size:1.125rem; color:#333; margin-bottom:0.25rem; }
+    .timeline .label h3 { margin:0 0 0.25rem 0; font-size:1rem; }
+    .timeline .label p { margin:0; color:#555; font-size:0.95rem; }
+    .faq { max-width:900px; margin:2rem auto; padding:1rem; background:rgba(255,255,255,0.95); border-radius:8px; }
+    .faq h2 { margin-top:0; }
+    .faq dt { font-weight:700; margin-top:1rem; }
+    .faq dd { margin:0.25rem 0 0 0; color:#444; }
+    @media (max-width:600px){ .timeline-item{min-width:220px;} }
+  </style>
+</head>
+<body>
+  <!-- Shared header -->
+  <div id="site-header"></div>
+  <!-- Title section below header -->
+  <div class="hero-content">
+    <h1>The Day Of</h1>
+    <h2>October 3rd, 2026</h2>
+  </div>
+  <!-- Main content -->
+  <main>
+    <p>Below is a rough timeline for the day — times are approximate.</p>
+
+    <div class="timeline" aria-label="Schedule timeline">
+      <div class="timeline-track">
+        <div class="timeline-item" aria-labelledby="t1">
+          <div class="time" id="t1"><span class="hour">10</span>:<span class="minute">00</span></div>
+          <div class="label"><h3>Guest Arrival</h3><p>Gates open and seating begins.</p></div>
+        </div>
+
+        <div class="timeline-item" aria-labelledby="t2">
+          <div class="time" id="t2"><span class="hour">11</span>:<span class="minute">30</span></div>
+          <div class="label"><h3>Ceremony</h3><p>Short outdoor ceremony among the trees.</p></div>
+        </div>
+
+        <div class="timeline-item" aria-labelledby="t3">
+          <div class="time" id="t3"><span class="hour">12</span>:<span class="minute">30</span></div>
+          <div class="label"><h3>Photos &amp; Cocktails</h3><p>Light hors d'oeuvres and photos nearby.</p></div>
+        </div>
+
+        <div class="timeline-item" aria-labelledby="t4">
+          <div class="time" id="t4"><span class="hour">2</span>:<span class="minute">00</span></div>
+          <div class="label"><h3>Reception</h3><p>Catered dinner and toasts.</p></div>
+        </div>
+
+        <div class="timeline-item" aria-labelledby="t5">
+          <div class="time" id="t5"><span class="hour">5</span>:<span class="minute">30</span></div>
+          <div class="label"><h3>Dancing &amp; Bonfire</h3><p>Music and bonfire to close out the night.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <dl>
+        <dt>Where should I park?</dt>
+        <dd>Follow signs to the main parking area; there will be shuttles to the ceremony site if needed.</dd>
+
+        <dt>What should I wear?</dt>
+        <dd>Comfortable, presentable attire is best — be prepared for gravel and an outdoor bonfire.</dd>
+
+        <dt>Can I bring a plus one?</dt>
+        <dd>Please RSVP with the number of guests listed on your invitation.</dd>
+
+        <dt>Is the venue wheelchair accessible?</dt>
+        <dd>There are accessible routes to the ceremony and reception; contact us if you need assistance.</dd>
+      </dl>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
+  </script>
+  <script src="assets/js/scripts.js" defer></script>
+</body>
+</html>
