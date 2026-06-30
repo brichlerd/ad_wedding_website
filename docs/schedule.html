@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Day Of | Ashley & Danny's Wedding</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+  <style>
+    .timeline { width:100%; max-width:900px; margin:2rem auto; padding:1rem 0; }
+    .timeline-track { display:flex; align-items:flex-start; gap:1.25rem; padding:1rem 0; overflow:auto; }
+    .timeline-item { min-width:180px; background:rgba(255,255,255,0.95); border-radius:8px; padding:0.75rem; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+    .timeline .time { font-weight:700; font-size:1.125rem; color:#333; margin-bottom:0.25rem; }
+    .timeline .label h3 { margin:0 0 0.25rem 0; font-size:1rem; }
+    .timeline .label p { margin:0; color:#555; font-size:0.95rem; }
+    .faq { max-width:900px; margin:2rem auto; padding:1rem; background:rgba(255,255,255,0.95); border-radius:8px; }
+    .faq h2 { margin-top:0; }
+    .faq dt { font-weight:700; margin-top:1rem; }
+    .faq dd { margin:0.25rem 0 0 0; color:#444; }
+    @media (max-width:600px){ .timeline-item{min-width:220px;} }
+  </style>
+</head>
+<body>
+  <!-- Shared header -->
+  <div id="site-header"></div>
+  <!-- Title section below header -->
+  <div class="hero-content">
+    <h1>The Day Of</h1>
+    <h2>October 3rd, 2026</h2>
+  </div>
+  <!-- Main content -->
+  <main>
+    <p>Below is the timeline for the day. There are not many planned events & ceremonies schedule for the evening. We want this to feel like a casual hangout with family and friends close to nature.</p>
+
+    <div class="timeline" aria-label="Schedule timeline">
+      <div class="timeline-track">
+        <div class="timeline-item" aria-labelledby="t1">
+          <div class="time" id="t1"><span class="hour">4</span>:<span class="minute">00</span></div>
+          <div class="label"><h3>Guest Arrival</h3><p>Grab a drink and a snack.</p></div>
+        </div>
+
+        <div class="timeline-item" aria-labelledby="t2">
+          <div class="time" id="t2"><span class="hour">5</span>:<span class="minute">00</span></div>
+          <div class="label"><h3>Ceremony starts</h3><p>Short outdoor ceremony. Sit or stand where you please.</p></div>
+        </div>
+
+        <div class="timeline-item" aria-labelledby="t3">
+          <div class="time" id="t3"><span class="hour">5</span>:<span class="minute">30</span></div>
+          <div class="label"><h3>Food truck arrives</h3><p>Drink, eat, and socialize.</p></div>
+        </div>
+
+        <div class="timeline-item" aria-labelledby="t4">
+          <div class="time" id="t4"><span class="hour">6</span>:<span class="minute">00</span> - <span class="hour">10</span>:<span class="minute">00</span></div>
+          <div class="label"><h3>Music, Games &amp; Bonfire</h3><p>Music, dancing, bonfire, and merch giveaways.</p></div>
+        </div>
+
+        <div class="timeline-item" aria-labelledby="t5">
+          <div class="time" id="t5"><span class="hour">10</span>:<span class="minute">00</span></div>
+          <div class="label"><h3>Closing Time</h3><p>Thank you & drive safe!</p></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <dl>
+        <dt>Where should I park?</dt>
+        <dd>Drive all the way up the steep gravel drive. There will be someone to help you find a spot.</dd>
+
+        <dt>What should I wear?</dt>
+        <dd>Comfortable but presentable attire is best — be prepared for a gravel road and an outdoor bonfire. For attire, think family cookout or casual outdoor event. Nice jeans or shorts (if it's hot), and comfortable shoes/sneakers are all okay with us!</dd>
+
+        <dt>What is the food situation?</dt>
+        <dd>There will be a Dos Hermanos food truck serving tacos, burritos, and more. Also, plenty of snacks and desserts.</dd>
+
+        <dt>Are there non-alcoholic and alcoholic beverages available?</dt>
+        <dd>Yes. For alcoholic beverages, we will be serving beer and wine.</dd>
+
+        <dt>Is there a place to stay nearby?</dt>
+        <dd>Yes. Please see the location page on this website for nearby hotels and lodging you can book. There are many options but all will require a drive to and from the venue.</dd>
+      </dl>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-header').innerHTML = html);
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('site-footer').innerHTML = html);
+  </script>
+  <script src="assets/js/scripts.js" defer></script>
+</body>
+</html>
